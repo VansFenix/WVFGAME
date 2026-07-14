@@ -19,20 +19,13 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
-<<<<<<< HEAD
-=======
-  // Network-first for HTML, cache-first for static assets
->>>>>>> 2ff553607ce340620ac49c6fc9e8c358ccefc76f
+
   const url = new URL(e.request.url);
   if (url.origin !== self.location.origin) return;
 
   if (e.request.mode === 'navigate') {
     e.respondWith(
-<<<<<<< HEAD
       fetch(e.request).catch(() => caches.match(BASE + '/index.html'))
-=======
-      fetch(e.request).catch(() => caches.match(BASE + '/'))
->>>>>>> 2ff553607ce340620ac49c6fc9e8c358ccefc76f
     );
     return;
   }
