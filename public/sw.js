@@ -1,5 +1,6 @@
 const CACHE = 'wvf-v2';
 
+// Determine base path from SW location
 const BASE = self.location.pathname.replace(/\/sw\.js$/, '') || '';
 
 self.addEventListener('install', e => {
