@@ -166,7 +166,7 @@ export function showProfile() {
   const lvl = getLevel(totalXp);
   const prog = getLevelProgress(totalXp);
   const hs = stats.highScores;
-  const gameNames = { snake: 'Змейка', tictactoe: 'Крестики-Нолики', memory: 'Мемори', tetris: 'Тетрис', checkers: 'Шашки', doom: 'Doom', chess: 'Шахматы', sudoku: 'Судоку' };
+  const gameNames = { snake: 'Змейка', tictactoe: 'Крестики-Нолики', memory: 'Мемори', tetris: 'Тетрис', checkers: 'Шашки', doom: 'Doom', chess: 'Шахматы', sudoku: 'Судоку', '2048': '2048', flappy: 'Flappy Bird' };
   const hsList = Object.keys(gameNames).filter(k => hs[k] !== undefined).map(k => `<span>${gameNames[k]}: <strong>${hs[k]}</strong></span>`).join('');
   const balance = data.wallet || 0;
   DOM.profileContent.innerHTML = `

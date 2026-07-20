@@ -1,10 +1,12 @@
 let audioCtx = null;
+let _muted = localStorage.getItem('wvf_muted') === '1';
 
 function ensureAudio() {
   if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 }
 
 function playTone(freq, duration, type = 'square', volume = 0.08) {
+  if (_muted) return;
   try {
     ensureAudio();
     const osc = audioCtx.createOscillator();
@@ -18,6 +20,14 @@ function playTone(freq, duration, type = 'square', volume = 0.08) {
     osc.start();
     osc.stop(audioCtx.currentTime + duration);
   } catch (e) {}
+}
+
+export function isMuted() { return _muted; }
+
+export function toggleMute() {
+  _muted = !_muted;
+  localStorage.setItem('wvf_muted', _muted ? '1' : '0');
+  return _muted;
 }
 
 export const SFX = {

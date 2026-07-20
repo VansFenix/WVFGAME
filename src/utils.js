@@ -1,5 +1,5 @@
 export function loadHS(game) {
-  const keys = { snake: 'wvf_snake_hs', memory: 'wvf_memory_hs' };
+  const keys = { snake: 'wvf_snake_hs', memory: 'wvf_memory_hs', '2048': 'wvf_2048_hs', flappy: 'wvf_flappy_hs' };
   return localStorage.getItem(keys[game]) || '0';
 }
 

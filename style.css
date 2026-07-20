@@ -371,6 +371,11 @@ body {
 .game-card[data-game="casino"]:hover .card-bg { border-color: rgba(255,215,0,0.25); box-shadow: 0 0 50px rgba(255,215,0,0.05), inset 0 0 50px rgba(255,215,0,0.02); }
 .game-card[data-game="casino"]:hover h3 { color: #ffd700; }
 
+.game-card[data-game="2048"]:hover .card-bg { border-color: rgba(255,200,100,0.25); box-shadow: 0 0 50px rgba(255,200,100,0.05), inset 0 0 50px rgba(255,200,100,0.02); }
+.game-card[data-game="2048"]:hover h3 { color: #ffc864; }
+.game-card[data-game="flappy"]:hover .card-bg { border-color: rgba(255,224,46,0.25); box-shadow: 0 0 50px rgba(255,224,46,0.05), inset 0 0 50px rgba(255,224,46,0.02); }
+.game-card[data-game="flappy"]:hover h3 { color: #ffe02e; }
+
 /* ─── Game Zone ─── */
 .hidden { display: none !important; }
 
@@ -584,6 +589,57 @@ body {
 }
 
 .snake-info kbd {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    font-family: inherit;
+    color: var(--text);
+}
+
+/* ─── 2048 ─── */
+#game-container canvas.g2048-canvas {
+    border-radius: 10px;
+    background: #bbada0;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+    max-width: 100%;
+    height: auto;
+}
+.g2048-info {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-top: 16px;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+.g2048-info kbd {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    font-family: inherit;
+    color: var(--text);
+}
+
+/* ─── Flappy Bird ─── */
+#game-container canvas.flappy-canvas {
+    border-radius: 10px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.5);
+    max-width: 100%;
+    height: auto;
+}
+.flappy-info {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-top: 16px;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+.flappy-info kbd {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 6px;
@@ -1256,6 +1312,27 @@ body {
 }
 .wallet.hidden { opacity: 0; transform: translateY(-10px); pointer-events: none; }
 .wallet-svg { display: inline-block; vertical-align: middle; margin-right: 2px; filter: drop-shadow(0 0 6px rgba(255,215,0,0.3)); }
+
+#mute-btn {
+    position: fixed; top: 18px; right: 80px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 7px 12px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: rgba(255,255,255,0.6);
+    z-index: 100;
+    transition: all 0.25s;
+}
+#mute-btn:hover {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    border-color: rgba(255,255,255,0.25);
+}
+#mute-btn svg { display: block; }
 
 /* ─── Casino ─── */
 .casino-wrap {
@@ -2011,6 +2088,11 @@ body {
     #doom-canvas { max-width: 100%; height: auto; }
     #checkers-canvas { max-width: 100%; height: auto; }
     .snake-canvas { max-width: 100%; height: auto; }
+    .g2048-canvas { max-width: 100%; height: auto; }
+    .flappy-canvas { max-width: 100%; height: auto; }
+    .g2048-info { flex-wrap: wrap; gap: 8px; font-size: 0.75rem; }
+    #mute-btn { right: 70px; top: 14px; padding: 5px 10px; }
+    #mute-btn svg { width: 16px; height: 16px; }
 }
 
 @media (max-width: 450px) {

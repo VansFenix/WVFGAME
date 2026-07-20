@@ -2,6 +2,8 @@ import { startParticles } from './particles.js';
 import { startGame, backToMenu, showHelp, closeHelp, showToast } from './ui.js';
 import { showProfile, closeProfile, logout, initAuthSession, login, register } from './auth.js';
 import { updateWallet } from './wallet.js';
+import { toggleMute, isMuted } from './sound.js';
+import { DOM } from './dom.js';
 
 // ─── Expose to window for inline onclick handlers ───
 window.startGame = startGame;
@@ -10,6 +12,16 @@ window.showHelp = showHelp;
 window.closeHelp = closeHelp;
 window.showProfile = showProfile;
 window.closeProfile = closeProfile;
+window.toggleMute = () => {
+  const muted = toggleMute();
+  DOM.muteIcon.innerHTML = muted
+    ? '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>'
+    : '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/>';
+  DOM.muteBtn.title = muted ? 'Звук выкл' : 'Звук вкл';
+};
+
+// ─── Init mute icon ───
+if (isMuted()) window.toggleMute();
 
 // ─── Start background particles ───
 startParticles();

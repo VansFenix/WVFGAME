@@ -19,6 +19,8 @@ export const DOM = {
   authOverlay: document.getElementById('auth-overlay'),
   userBar: document.getElementById('user-bar'),
   userName: document.getElementById('user-name'),
+  muteBtn: document.getElementById('mute-btn'),
+  muteIcon: document.getElementById('mute-icon'),
 };
 
 export let currentCleanup = null;
