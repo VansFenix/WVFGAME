@@ -1,4 +1,4 @@
-const CACHE = 'wvf-v2';
+const CACHE = 'wvf-v3';
 
 const BASE = self.location.pathname.replace(/\/sw\.js$/, '') || '';
 
